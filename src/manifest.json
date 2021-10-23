@@ -1,0 +1,11 @@
+{
+  "name": "meet_chrome_extention",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "description": "Google Meet Tool",
+  "permissions": ["contextMenus", "tabs"],
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "meet_chrome_extention"
+  }
+}

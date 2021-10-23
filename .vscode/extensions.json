@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "cpylua.language-postcss",
+    "stylelint.vscode-stylelint"
+  ]
+}
