@@ -3,9 +3,15 @@
   "version": "0.0.1",
   "manifest_version": 3,
   "description": "Google Meet Tool",
-  "permissions": ["contextMenus", "tabs"],
+  "permissions": [],
   "action": {
     "default_popup": "index.html",
     "default_title": "meet_chrome_extention"
-  }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://meet.google.com/*"],
+      "js": ["content_script_comment.js"]
+    }
+  ]
 }

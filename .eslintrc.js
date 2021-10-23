@@ -17,6 +17,7 @@ module.exports = {
     browser: true,
     amd: true,
     node: true,
+    webextensions: true,
   },
   extends: [
     'eslint:recommended',

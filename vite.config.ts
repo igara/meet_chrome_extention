@@ -14,6 +14,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/main/main.tsx'),
+        content_script_comment: resolve(__dirname, 'src/content_scripts/comment.ts'),
       },
       output: {
         entryFileNames: '[name].js',
