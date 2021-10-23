@@ -1,4 +1,6 @@
-import App from '@src/App';
+import '@src/main/index.css';
+
+import App from '@src/main/App';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
