@@ -6,7 +6,7 @@ describe('background/index/onUpdated', () => {
   });
 
   test('タブのURLがないとき', async () => {
-    const chromeTabsQuery = jest.fn();
+    const chromeTabsQueryMock = jest.fn();
     // @ts-ignore
     global.chrome = {
       tabs: {
@@ -14,7 +14,7 @@ describe('background/index/onUpdated', () => {
         onUpdated: {
           addListener: jest.fn(),
         },
-        query: chromeTabsQuery,
+        query: chromeTabsQueryMock,
       },
       runtime: {
         // @ts-ignore
@@ -27,11 +27,11 @@ describe('background/index/onUpdated', () => {
     const Index = await require('@src/background/index');
     // @ts-ignore
     Index.onUpdated(0, {}, {});
-    expect(chromeTabsQuery).not.toBeCalled();
+    expect(chromeTabsQueryMock).not.toBeCalled();
   });
 
   test('info.status === completeではないとき', async () => {
-    const chromeTabsQuery = jest.fn();
+    const chromeTabsQueryMock = jest.fn();
     // @ts-ignore
     global.chrome = {
       tabs: {
@@ -39,7 +39,7 @@ describe('background/index/onUpdated', () => {
         onUpdated: {
           addListener: jest.fn(),
         },
-        query: chromeTabsQuery,
+        query: chromeTabsQueryMock,
       },
       runtime: {
         // @ts-ignore
@@ -52,11 +52,11 @@ describe('background/index/onUpdated', () => {
     const Index = await require('@src/background/index');
     // @ts-ignore
     Index.onUpdated(0, { status: 'loading' }, { url: 'http://hoge.fuga' });
-    expect(chromeTabsQuery).not.toBeCalled();
+    expect(chromeTabsQueryMock).not.toBeCalled();
   });
 
   test('meetのURLではないとき', async () => {
-    const chromeTabsQuery = jest.fn();
+    const chromeTabsQueryMock = jest.fn();
     // @ts-ignore
     global.chrome = {
       tabs: {
@@ -64,7 +64,7 @@ describe('background/index/onUpdated', () => {
         onUpdated: {
           addListener: jest.fn(),
         },
-        query: chromeTabsQuery,
+        query: chromeTabsQueryMock,
       },
       runtime: {
         // @ts-ignore
@@ -77,11 +77,11 @@ describe('background/index/onUpdated', () => {
     const Index = await require('@src/background/index');
     // @ts-ignore
     Index.onUpdated(0, { status: 'complete' }, { url: 'http://hoge.fuga' });
-    expect(chromeTabsQuery).not.toBeCalled();
+    expect(chromeTabsQueryMock).not.toBeCalled();
   });
 
   test('chrome.tabs.queryが呼ばれる', async () => {
-    const chromeTabsQuery = jest.fn();
+    const chromeTabsQueryMock = jest.fn();
     // @ts-ignore
     global.chrome = {
       tabs: {
@@ -89,7 +89,7 @@ describe('background/index/onUpdated', () => {
         onUpdated: {
           addListener: jest.fn(),
         },
-        query: chromeTabsQuery,
+        query: chromeTabsQueryMock,
       },
       runtime: {
         // @ts-ignore
@@ -102,6 +102,6 @@ describe('background/index/onUpdated', () => {
     const Index = await require('@src/background/index');
     // @ts-ignore
     Index.onUpdated(0, { status: 'complete' }, { url: 'https://meet.google.com/' });
-    expect(chromeTabsQuery).toBeCalled();
+    expect(chromeTabsQueryMock).toBeCalled();
   });
 });
