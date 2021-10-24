@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 12px;
   background-color: #282c34;
   color: white;
-  font-size: calc(10px + 2vmin);
 }

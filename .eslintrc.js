@@ -18,6 +18,7 @@ module.exports = {
     amd: true,
     node: true,
     webextensions: true,
+    jest: true,
   },
   extends: [
     'eslint:recommended',

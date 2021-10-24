@@ -14,11 +14,16 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/main/main.tsx'),
-        content_script_comment: resolve(__dirname, 'src/content_scripts/comment.ts'),
+        content_script_comment_memo: resolve(
+          __dirname,
+          'src/content_scripts/comment_memo.ts',
+        ),
+        background: resolve(__dirname, 'src/background/index.ts'),
       },
       output: {
         entryFileNames: '[name].js',
         assetFileNames: '[name].[ext]',
+        chunkFileNames: '[name].js',
       },
     },
   },
