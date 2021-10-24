@@ -4,9 +4,21 @@
   "manifest_version": 3,
   "description": "Google Meet Tool",
   "permissions": ["tabs"],
+  "icons": {
+    "16": "16.png",
+    "32": "32.png",
+    "48": "48.png",
+    "128": "128.png"
+  },
   "action": {
     "default_popup": "index.html",
-    "default_title": "meet_chrome_extention"
+    "default_title": "meet_chrome_extention",
+    "default_icon": {
+      "16": "16.png",
+      "32": "32.png",
+      "48": "48.png",
+      "128": "128.png"
+    }
   },
   "content_scripts": [
     {

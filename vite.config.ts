@@ -41,6 +41,10 @@ export default defineConfig({
           src: '*.html',
           dest: 'dist',
         },
+        {
+          src: './src/icons/*.png',
+          dest: 'dist',
+        },
       ],
     }),
   ],
