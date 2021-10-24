@@ -49,10 +49,11 @@ export const onMessage = (
 ) => {
   if (request.event === 'Background_MeetMeeting') {
     const nowDate = new Date();
-    const modified = `${nowDate.getFullYear()}/${
-      nowDate.getMonth() + 1
-    }/${nowDate.getDate()} ${nowDate.getHours()}:${nowDate.getMinutes()}:${nowDate.getSeconds()}`;
-
+    const modified = `${nowDate.getFullYear()}/${('0' + nowDate.getMonth() + 1).slice(
+      -2,
+    )}/${('0' + nowDate.getDate()).slice(-2)} ${('0' + nowDate.getHours()).slice(-2)}:${(
+      '0' + nowDate.getMinutes()
+    ).slice(-2)}:${('0' + nowDate.getSeconds()).slice(-2)}`;
     IndexDB.comments.put({
       meet_url: request.meetURL,
       meet_title: request.meetTitle,
