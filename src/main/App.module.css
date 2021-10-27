@@ -1,9 +1,83 @@
 .header {
   display: flex;
-  flex-direction: column;
+  position: fixed;
   align-items: center;
   justify-content: center;
-  padding: 12px;
+  width: 100%;
+  height: 60px;
   background-color: #282c34;
   color: white;
+}
+
+@keyframes headerKeyframe {
+  0% {
+    transform: translateX(-100px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.headerMenu,
+.headerTitle {
+  position: absolute;
+  animation: headerKeyframe 0.5s linear alternate;
+}
+.menuButton {
+  margin-left: auto;
+}
+
+.menuButton,
+.commentMemoDeleteButton,
+.copyButton {
+  position: relative;
+  padding: 4px;
+}
+.menuButton:hover .menuButtonDescription,
+.commentMemoDeleteButton:hover .commentMemoDeleteButtonDescription,
+.copyButton:hover .copyButtonDescription {
+  display: initial;
+}
+.menuButtonDescription,
+.commentMemoDeleteButtonDescription,
+.copyButtonDescription {
+  display: none;
+  position: absolute;
+  padding: 4px;
+  background: aqua;
+  white-space: nowrap;
+}
+.menuButtonDescription,
+.commentMemoDeleteButtonDescription {
+  top: 28px;
+  left: -24px;
+}
+.copyButtonDescription {
+  top: -28px;
+  left: 0;
+}
+
+.commentMemoTitle {
+  padding-top: 60px;
+}
+
+.comment {
+  position: relative;
+}
+.commentDummy {
+  color: transparent;
+  font-size: 12px;
+  line-height: 14px;
+  white-space: pre-wrap;
+}
+.commentTextarea {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  resize: none;
+}
+
+.border {
+  margin: 8px 0;
 }

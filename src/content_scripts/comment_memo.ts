@@ -1,4 +1,7 @@
 type States = {
+  /**
+   * key = `${created}:${meetURL}`
+   */
   [key: string]: {
     allChatButtonElementClicked: boolean;
     comments: string;
@@ -9,7 +12,8 @@ type States = {
 let states: States = {};
 
 export const intervalCheckMeetScreen = (meetURL: string, created: string) => {
-  const state = states[`${meetURL}:${created}`];
+  const stateKey = `${created}:${meetURL}`;
+  const state = states[stateKey];
   if (!states) return;
 
   const allChatButtonElement = document.querySelector(
@@ -20,7 +24,7 @@ export const intervalCheckMeetScreen = (meetURL: string, created: string) => {
 
   if (!state.allChatButtonElementClicked) {
     allChatButtonElement.click();
-    states[`${meetURL}:${created}`].allChatButtonElementClicked = true;
+    states[stateKey].allChatButtonElementClicked = true;
   }
 
   const ariaLivePoliteElement = document.querySelector('div[aria-live=polite]');
@@ -31,7 +35,7 @@ export const intervalCheckMeetScreen = (meetURL: string, created: string) => {
   const innerText = ariaLivePoliteElement.innerText;
   if (!innerText) return;
 
-  states[`${meetURL}:${created}`].comments = innerText;
+  states[stateKey].comments = innerText;
 
   const meetTitle = document.title;
   chrome.runtime.sendMessage(
@@ -69,7 +73,7 @@ export const onMessage = (
     const meetURL = location.origin + location.pathname;
     states = {
       ...states,
-      [`${meetURL}:${created}`]: {
+      [`${created}:${meetURL}`]: {
         allChatButtonElementClicked,
         comments,
         created,
