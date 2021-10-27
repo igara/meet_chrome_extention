@@ -61,7 +61,7 @@ export const onMessage = (
     const allChatButtonElementClicked = false;
     const comments = '';
     const nowDate = new Date();
-    const created = `${nowDate.getFullYear()}/${('0' + nowDate.getMonth() + 1).slice(
+    const created = `${nowDate.getFullYear()}/${('0' + (nowDate.getMonth() + 1)).slice(
       -2,
     )}/${('0' + nowDate.getDate()).slice(-2)} ${('0' + nowDate.getHours()).slice(-2)}:${(
       '0' + nowDate.getMinutes()
