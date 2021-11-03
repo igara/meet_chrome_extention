@@ -1,6 +1,7 @@
 .header {
   display: flex;
   position: fixed;
+  z-index: 99999;
   align-items: center;
   justify-content: center;
   width: 100%;

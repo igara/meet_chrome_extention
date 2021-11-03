@@ -1,6 +1,6 @@
 {
   "name": "meet_chrome_extention",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "clean": "rimraf node_modules dist package-lock.json",
     "dev": "vite build --watch",
