@@ -1,8 +1,13 @@
 export {};
 
+const RealDate = Date;
+// @ts-ignore
+let dateSpy = jest.spyOn(global, 'Date').mockImplementation(() => new RealDate());
+
 describe('background/index/onMessage', () => {
   beforeEach(() => {
     jest.resetModules();
+    dateSpy.mockReset();
   });
 
   test('Background_MeetMeeting拾ったときの確認', async () => {
@@ -37,9 +42,9 @@ describe('background/index/onMessage', () => {
         },
       },
     }));
-    const mockDate = new Date('2021-01-01T00:00:00');
+    const mockDate = new RealDate('2021-01-01T00:00:00');
     // @ts-ignore
-    jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
+    dateSpy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
 
     const Index = await require('@src/background/index');
 
@@ -92,9 +97,9 @@ describe('background/index/onMessage', () => {
         },
       },
     }));
-    const mockDate = new Date('2021-10-01T00:00:00');
+    const mockDate = new RealDate('2021-10-01T00:00:00');
     // @ts-ignore
-    jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
+    dateSpy = jest.spyOn(global, 'Date').mockImplementation(() => mockDate);
 
     const Index = await require('@src/background/index');
 
