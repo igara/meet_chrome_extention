@@ -20,6 +20,10 @@ npm build
 
 #### Install Chrome Extention
 
-select dist folder
+##### select dist folder
 
 ![install_chrome_extention](./docks/images/install_chrome_extention.gif)
+
+##### Chrome Web Store
+
+https://chrome.google.com/webstore/detail/meetchromeextention/jhcdeimoegealgbdlanjbmkigbfhbnoi
